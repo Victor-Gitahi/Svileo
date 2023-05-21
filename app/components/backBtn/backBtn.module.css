@@ -1,0 +1,9 @@
+.back_button {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.back_button:hover .btn_icon {
+  transform: translateX(-5px);
+}

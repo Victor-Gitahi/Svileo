@@ -1,0 +1,132 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #121212;
+  width: 100vw;
+  padding-inline: 6rem;
+  overflow: hidden;
+}
+
+.content_wrapper {
+  margin-top: 3rem;
+  position: relative;
+}
+
+.form {
+  position: relative;
+  background-color: rgba(60, 1, 255, 0.05);
+  color: #fff;
+  padding: 3rem 2rem;
+  border-radius: var(--border-radius);
+  height: 50vh;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  border: 1px solid #ffffff19;
+  margin-left: 5rem;
+}
+
+.ellipse {
+  position: absolute;
+  right: 10%;
+  height: 10rem;
+  width: 10rem;
+  z-index: -1;
+  background: radial-gradient(
+    circle,
+    #d16ba5,
+    #c777b9,
+    #ba83ca,
+    #aa8fd8,
+    #9a9ae1,
+    #8aa7ec,
+    #79b3f4,
+    #69bff8,
+    #52cffe,
+    #41dfff,
+    #46eefa,
+    #5ffbf1
+  );
+  border-radius: 50%;
+  z-index: 0;
+  left: 0;
+  filter: blur(100px);
+}
+
+.main_text,
+.desc {
+  color: #fff;
+}
+
+.main_text {
+  line-height: 0.9;
+  font-weight: bold;
+  font-size: 5rem;
+  background: -webkit-linear-gradient(
+    #91ffeb,
+    #5bf1ff,
+    #53ddff,
+    #86c4ff,
+    #bfa5ff,
+    #d194f5,
+    #e380e5,
+    #f46acf,
+    #ed65d9,
+    #e361e4,
+    #d65fef,
+    #c65ffb
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.desc {
+  color: #d4d4d4;
+}
+
+.back_button {
+  color: #6e6e6e;
+  align-self: start;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: small;
+}
+
+.back_button_arrow {
+  transition: all 0.25s ease;
+}
+
+.back_button:hover .back_button_arrow {
+  transform: translateX(-3px);
+}
+
+.login_link {
+  color: #d4d4d4;
+}
+
+@media screen and (max-width: 456px) {
+  .main {
+    padding: 2rem;
+    min-height: auto;
+    height: auto;
+  }
+  .content_wrapper {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* height: 100vh; */
+  }
+  .form {
+    height: auto;
+    margin-left: 0;
+    margin-top: 4rem;
+  }
+  .main_text {
+    font-size: 4rem;
+  }
+  .desc {
+    font-size: small;
+  }
+}
