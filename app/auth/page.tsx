@@ -5,30 +5,38 @@ import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 import Link from "next/link";
 import { BsArrowLeft } from "react-icons/bs";
-import BackButton from "../components/backBtn/backBtn";
 
-function Page() {
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+export default function Page() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const router = useRouter();
 
   const handleForm = async (event) => {
     event.preventDefault();
-
-    const { result, error } = await signUp(email, password);
+    toast("Registering User.");
+    const { result, error, errCode } = await signUp(email, password);
 
     if (error) {
+      if (errCode == "auth/email-already-in-use") {
+        toast("This Email is Already in use, Please try another one.");
+      }
+
       return console.log(error);
     }
 
     // else successful
-    console.log(result);
+    toast("Registration Successful, Please wait ");
     return router.push("/admin");
   };
+
   return (
     <main
       className={`${styles.main} d-flex flex-column align-items-center justify-content-center`}
     >
+      <ToastContainer />
       <button
         className={`${styles.back_button}`}
         onClick={() => {
@@ -101,5 +109,3 @@ function Page() {
     </main>
   );
 }
-
-export default Page;

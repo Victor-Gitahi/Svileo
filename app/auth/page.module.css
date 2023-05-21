@@ -33,7 +33,37 @@
   height: 10rem;
   width: 10rem;
   z-index: -1;
-  background: radial-gradient(
+  background-image: radial-gradient(
+    circle,
+    #d16bcd,
+    #f96fad,
+    #ff818f,
+    #ff9b7a,
+    #ffb873,
+    #efc975,
+    #dcd980,
+    #c8e794,
+    #afeea6,
+    #94f4bd,
+    #79f8d7,
+    #5ffbf1
+  );
+  border-radius: 50%;
+  z-index: 0;
+  left: 0;
+  filter: blur(150px);
+}
+
+.main_text,
+.desc {
+  color: #fff;
+}
+
+.main_text {
+  line-height: 0.9;
+  font-weight: bold;
+  font-size: 5rem;
+  background-image: radial-gradient(
     circle,
     #d16ba5,
     #c777b9,
@@ -47,35 +77,6 @@
     #41dfff,
     #46eefa,
     #5ffbf1
-  );
-  border-radius: 50%;
-  z-index: 0;
-  left: 0;
-  filter: blur(100px);
-}
-
-.main_text,
-.desc {
-  color: #fff;
-}
-
-.main_text {
-  line-height: 0.9;
-  font-weight: bold;
-  font-size: 5rem;
-  background: -webkit-linear-gradient(
-    #91ffeb,
-    #5bf1ff,
-    #53ddff,
-    #86c4ff,
-    #bfa5ff,
-    #d194f5,
-    #e380e5,
-    #f46acf,
-    #ed65d9,
-    #e361e4,
-    #d65fef,
-    #c65ffb
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
