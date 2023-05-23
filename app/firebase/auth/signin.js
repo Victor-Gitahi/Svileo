@@ -5,12 +5,14 @@ const auth = getAuth(firebase_app);
 
 export default async function signIn(email, password) {
   let result = null,
-    error = null;
+    error = null,
+    errCode = null;
   try {
     result = await signInWithEmailAndPassword(auth, email, password);
   } catch (e) {
-    error = e;
+    error = e.message;
+    errCode = e.code;
   }
 
-  return { result, error };
+  return { result, error, errCode };
 }
