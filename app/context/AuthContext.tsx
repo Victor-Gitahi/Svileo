@@ -2,6 +2,8 @@
 import React from "react";
 import { onAuthStateChanged, getAuth } from "firebase/auth";
 import firebase_app from "@/app/firebase/config";
+import Loader from "@/app/components/Loader/Loader";
+import styles from "./styles.module.css";
 
 const auth = getAuth(firebase_app);
 
@@ -28,7 +30,17 @@ export const AuthContextProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={{ user }}>
-      {loading ? <div>Loading Auth Status</div> : children}
+      {loading ? (
+        <main className={styles.main}>
+          <div className={styles.text_content}>
+            <h5>Welcome to Svileo</h5>
+            <p>Please wait while we verify your Authentication Status</p>
+          </div>
+          <Loader />
+        </main>
+      ) : (
+        children
+      )}
     </AuthContext.Provider>
   );
 };
