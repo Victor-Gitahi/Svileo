@@ -20,11 +20,15 @@
   color: #fff;
   padding: 3rem 2rem;
   border-radius: var(--border-radius);
-  height: 50vh;
+  height: 60vh;
   z-index: 100;
   backdrop-filter: blur(10px);
   border: 1px solid #ffffff19;
   margin-left: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
 }
 
 .ellipse {
@@ -52,6 +56,21 @@
   z-index: 0;
   left: 0;
   filter: blur(150px);
+  transition: all 3s ease;
+}
+
+.auth_ellipse {
+  left: 0;
+  opacity: 0.5;
+  background-image: radial-gradient(
+    circle,
+    #6bd1c3,
+    #a46ff9,
+    #ffe081,
+    #ff9b7a,
+    #ffb873,
+    #efc975
+  );
 }
 
 .main_text,
@@ -105,6 +124,17 @@
 
 .login_link {
   color: #d4d4d4;
+  font-size: small;
+  margin-top: 2rem;
+}
+
+.form_header {
+  background-color: #ffffff09;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  font-size: small;
+  margin-bottom: 2rem;
 }
 
 @media screen and (max-width: 456px) {
