@@ -1,6 +1,10 @@
 "use client";
-import React, { useState } from "react";
-import { onAuthStateChanged, getAuth } from "firebase/auth";
+import React, { useState, useEffect } from "react";
+import {
+  onAuthStateChanged,
+  getAuth,
+  User as FirebaseAuthUser,
+} from "firebase/auth";
 import firebase_app from "@/app/firebase/config";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -10,7 +14,7 @@ import styles from "./styles.module.css";
 const auth = getAuth(firebase_app);
 
 interface User {
-  email: string;
+  email: string | null;
 }
 
 export const AuthContext = React.createContext<{
@@ -20,34 +24,39 @@ export const AuthContext = React.createContext<{
 
 export const useAuthContext = () => React.useContext(AuthContext);
 
-export const AuthContextProvider = ({ children }) => {
-  const [user, setUser] = React.useState(null);
+export const AuthContextProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  const [user, setUser] = React.useState<User | null>(null);
   const [loading, setLoading] = React.useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const id = toast.loading("Please wait while we verify your Auth status");
 
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-        setIsLoggedIn(true);
-        toast.update(id, {
-          render: "Signed In",
-          type: "success",
-          isLoading: false,
-        });
-      } else {
-        toast.update(id, {
-          render: "Redirecting to Auth",
-          type: "info",
-          isLoading: false,
-        });
-        setUser(null);
-        setIsLoggedIn(false);
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (user: FirebaseAuthUser | null) => {
+        if (user) {
+          setUser({ email: user.email });
+          setIsLoggedIn(true);
+          toast.update(id, {
+            render: "Signed In",
+            type: "success",
+            isLoading: false,
+          });
+        } else {
+          toast.update(id, {
+            render: "Redirecting to Auth",
+            type: "info",
+            isLoading: false,
+          });
+          setUser(null);
+          setIsLoggedIn(false);
+        }
+        setLoading(false);
       }
-      setLoading(false);
-    });
+    );
 
     return () => unsubscribe();
   }, []);
