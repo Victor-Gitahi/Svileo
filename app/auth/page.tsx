@@ -22,9 +22,6 @@ export default function Page() {
     const toastID = toast.loading("Authentification in process");
     event.preventDefault();
     setIsLoading(true);
-    // toast.info("Registering User.", {
-    //   autoClose: 3000,
-    // });
     toast.update(toastID, {
       render: "Signing you up",
       type: "info",
@@ -34,23 +31,16 @@ export default function Page() {
 
     if (error) {
       if (errCode == "auth/email-already-in-use") {
-        // toast.error("This Email is Already in use, Please try another one.", {
-        //   autoClose: 5000,
-        // });
         toast.update(toastID, {
           render: "Invalid Email. Try another one",
           type: "error",
           isLoading: false,
-          // autoClose: 4000,
         });
         setFormData({
           email: "",
           password: "",
         });
       } else {
-        // toast.error(error, {
-        //   autoClose: 5000,
-        // });
         toast.update(toastID, {
           render: error,
           type: "error",
@@ -62,8 +52,6 @@ export default function Page() {
         });
       }
     } else {
-      // else successful
-      // toast.success("Registration Successful, Please wait ");
       toast.update(toastID, {
         render: "Registration Successful",
         type: "success",
