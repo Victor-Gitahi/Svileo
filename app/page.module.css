@@ -19,3 +19,16 @@
   opacity: 0.5;
   filter: blur(150px);
 }
+
+.ellipse {
+  height: 8rem;
+  width: 8rem;
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+  filter: blur(200px);
+}
+
+.ellipse_1 {
+  background-color: #00ffff;
+}

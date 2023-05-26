@@ -1,0 +1,20 @@
+.main {
+  border: 1px solid #ffffff12;
+  padding: 1rem 3rem;
+  border-radius: 0.5rem;
+  z-index: 100;
+  background-color: #ffffff06;
+  backdrop-filter: blur(10px);
+  height: 40vh;
+}
+
+.graph_header {
+  font-size: small;
+  color: #646464;
+  margin-bottom: 3rem;
+}
+
+.graph {
+  height: 100%;
+  width: 100%;
+}
