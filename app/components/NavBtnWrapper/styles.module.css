@@ -1,0 +1,8 @@
+.btn_link {
+  text-decoration: none;
+  color: black;
+}
+
+.nav_btn:hover .btn_link {
+  color: #6effa8;
+}

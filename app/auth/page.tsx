@@ -19,25 +19,42 @@ export default function Page() {
   const router = useRouter();
 
   const handleForm = async (event: FormEvent<HTMLFormElement>) => {
+    const toastID = toast.loading("Authentification in process");
     event.preventDefault();
     setIsLoading(true);
-    toast.info("Registering User.", {
-      autoClose: 3000,
+    // toast.info("Registering User.", {
+    //   autoClose: 3000,
+    // });
+    toast.update(toastID, {
+      render: "Signing you up",
+      type: "info",
+      isLoading: true,
     });
     const { result, error, errCode } = await signUp(email, password);
 
     if (error) {
       if (errCode == "auth/email-already-in-use") {
-        toast.error("This Email is Already in use, Please try another one.", {
-          autoClose: 5000,
+        // toast.error("This Email is Already in use, Please try another one.", {
+        //   autoClose: 5000,
+        // });
+        toast.update(toastID, {
+          render: "Invalid Email. Try another one",
+          type: "error",
+          isLoading: false,
+          // autoClose: 4000,
         });
         setFormData({
           email: "",
           password: "",
         });
       } else {
-        toast.error(error, {
-          autoClose: 5000,
+        // toast.error(error, {
+        //   autoClose: 5000,
+        // });
+        toast.update(toastID, {
+          render: error,
+          type: "error",
+          isLoading: false,
         });
         setFormData({
           email: "",
@@ -46,13 +63,20 @@ export default function Page() {
       }
     } else {
       // else successful
-      toast.success("Registration Successful, Please wait ");
+      // toast.success("Registration Successful, Please wait ");
+      toast.update(toastID, {
+        render: "Registration Successful",
+        type: "success",
+        isLoading: false,
+      });
       return router.push("/auth/login");
     }
   };
   return (
     <>
-      {isLoading && <ToastContainer autoClose={false} />}
+      {isLoading && (
+        <ToastContainer autoClose={false} className={styles.toast_container} />
+      )}
       <form onSubmit={handleForm} className={`${styles.form}`}>
         <h5 className={`${styles.form_header}`}>Create Account</h5>
         <div className="mb-3">

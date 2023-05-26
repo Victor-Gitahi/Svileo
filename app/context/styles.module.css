@@ -1,5 +1,11 @@
 .main {
   position: relative;
+  background-color: black;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .text_content {
@@ -19,7 +25,7 @@
 .text_content h5 {
   color: aquamarine;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 4rem;
   line-height: 0.9;
 }
 

@@ -1,15 +1,26 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuthContext } from "@/app/context/AuthContext";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation"; // Corrected import
+import styles from "./page.module.css";
 
-export default function Page() {
-  const { user } = useAuthContext();
+interface User {
+  email: string;
+  // Add other properties as needed
+}
+
+export default function Page(): JSX.Element {
+  const { user }: { user: User | null } = useAuthContext(); // Added type annotation for user
   const router = useRouter();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (user == null) router.push("/");
   }, [user]);
 
-  return <h1>You're seeing this because you're logged in</h1>;
+  return (
+    <main className={styles.main}>
+      <h1>Logged In</h1>
+      <p>Email: {user?.email}</p> {/* Added optional chaining operator */}
+    </main>
+  );
 }
