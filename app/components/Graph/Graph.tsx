@@ -1,3 +1,4 @@
+"use client";
 import { useEffect } from "react";
 import { Chart, ChartConfiguration } from "chart.js";
 import styles from "./Graph.module.css";
