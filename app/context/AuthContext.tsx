@@ -9,7 +9,14 @@ import styles from "./styles.module.css";
 
 const auth = getAuth(firebase_app);
 
-export const AuthContext = React.createContext({});
+interface User {
+  email: string;
+}
+
+export const AuthContext = React.createContext<{
+  user: User | null;
+  isLoggedIn: boolean;
+}>({ user: null, isLoggedIn: false });
 
 export const useAuthContext = () => React.useContext(AuthContext);
 
