@@ -15,7 +15,7 @@ export default function Page(): JSX.Element {
 
   useEffect(() => {
     if (user == null) router.push("/");
-  }, [user]);
+  }, [user, router]);
 
   return (
     <main className={styles.main}>
