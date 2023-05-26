@@ -56,7 +56,7 @@ export default function Page() {
             placeholder="johndoe@gmail.com"
           ></input>
           <div id="emailHelp" className="form-text">
-            We'll never share your email with anyone else.
+            We&apos;ll never share your email with anyone else.
           </div>
         </div>
         <div className="mb-3">
@@ -81,7 +81,7 @@ export default function Page() {
         </button>
 
         <small className={styles.login_link}>
-          Don't have an account? <Link href={"/auth"}>Register</Link>
+          Don&apos;t have an account? <Link href={"/auth"}>Register</Link>
         </small>
         <div className={styles.ellipse}></div>
       </form>
