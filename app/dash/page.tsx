@@ -3,7 +3,7 @@ import React from "react";
 import useAuth from "../context/useAuth";
 
 export default function page() {
-  useAuth();
+  const auth = useAuth();
   return (
     <main>
       <h1>Dash Page</h1>
