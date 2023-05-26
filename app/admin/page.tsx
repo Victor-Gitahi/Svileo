@@ -1,13 +1,8 @@
 "use client";
 import React, { useEffect } from "react";
-import { useAuthContext } from "@/app/context/AuthContext";
+import { useAuthContext, User } from "@/app/context/AuthContext";
 import { useRouter } from "next/navigation"; // Corrected import
 import styles from "./page.module.css";
-
-interface User {
-  email: string;
-  // Add other properties as needed
-}
 
 export default function Page(): JSX.Element {
   const { user }: { user: User | null } = useAuthContext(); // Added type annotation for user

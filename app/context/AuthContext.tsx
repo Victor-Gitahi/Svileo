@@ -13,7 +13,7 @@ import styles from "./styles.module.css";
 
 const auth = getAuth(firebase_app);
 
-interface User {
+export interface User {
   email: string | null;
 }
 
