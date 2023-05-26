@@ -7,6 +7,7 @@ export default function Home() {
   return (
     <>
       <main className={styles.main}>
+        <div className={`${styles.ellipse} ${styles.ellipse_1}`}></div>
         <Graph />
       </main>
     </>
