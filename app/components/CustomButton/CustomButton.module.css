@@ -1,0 +1,24 @@
+.button {
+  background-color: #6effa8;
+  border: 1px solid transparent;
+  padding: 0.25rem 0.75rem;
+  font-size: small;
+}
+
+.button:hover {
+  background-color: transparent;
+  border-color: #6effa8;
+  color: #6effa8;
+}
+
+.deposit_btn {
+  background-color: #fff;
+}
+
+.btn_primary {
+  background-color: #fff;
+}
+
+.nav_btn {
+  background-color: #ff0066;
+}

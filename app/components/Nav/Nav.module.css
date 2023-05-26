@@ -1,0 +1,79 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1000;
+  padding: 1.5rem;
+}
+
+.Logo {
+  transition: all 0.25s ease;
+  height: 3rem;
+  width: 3rem;
+  /* animation: animate 5s ease infinite alternate-reverse; */
+}
+
+.nav_links_container {
+  position: relative;
+  padding: 1rem 0;
+  background-color: rgba(240, 248, 255, 0.05);
+  border-radius: 0.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.nav_links_container::after {
+  position: absolute;
+  content: "";
+  height: 50px;
+  width: 50px;
+  background-color: #00ffbf;
+  border-radius: 50%;
+  filter: blur(100px);
+  left: 0;
+}
+
+.nav_links_container::before {
+  position: absolute;
+  content: "";
+  height: 50px;
+  width: 50px;
+  background-color: #ff0066;
+  border-radius: 50%;
+  filter: blur(100px);
+  right: 0;
+}
+
+.nav_link {
+  position: relative;
+  margin-inline: 4rem;
+  text-decoration: none;
+  color: #fff;
+  font-size: small;
+  text-transform: uppercase;
+}
+
+.nav_link::after {
+  content: "";
+  position: absolute;
+  bottom: -0.75rem;
+  left: 0;
+  height: 3px;
+  width: 0;
+  border-radius: 0.5rem;
+  background-color: #6effa8;
+  transition: all 0.15s ease-in;
+}
+
+.nav_link:hover::after {
+  width: 100%;
+}
+
+.nav_link_icon {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.deposit_btn {
+  background-color: #fff;
+}
