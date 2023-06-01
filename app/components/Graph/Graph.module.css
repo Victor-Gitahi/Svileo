@@ -11,13 +11,7 @@
 .graph_header {
   font-size: small;
   color: #646464;
-  margin-bottom: 1rem;
-  background-color: #ffffff0a;
-  padding: 0.5rem;
-  text-align: center;
-  width: 20%;
-  border-radius: 0.5rem;
-  border: 1px solid #ffffff0f;
+  margin-bottom: 3rem;
 }
 
 .graph {
