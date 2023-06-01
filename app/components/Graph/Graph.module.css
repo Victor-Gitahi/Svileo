@@ -5,13 +5,19 @@
   z-index: 100;
   background-color: #ffffff06;
   backdrop-filter: blur(10px);
-  height: 40vh;
+  height: auto;
 }
 
 .graph_header {
   font-size: small;
   color: #646464;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
+  background-color: #ffffff0a;
+  padding: 0.5rem;
+  text-align: center;
+  width: 20%;
+  border-radius: 0.5rem;
+  border: 1px solid #ffffff0f;
 }
 
 .graph {
